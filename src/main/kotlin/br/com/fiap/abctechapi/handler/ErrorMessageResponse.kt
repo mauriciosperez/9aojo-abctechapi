@@ -1,6 +1,6 @@
 package br.com.fiap.abctechapi.handler
 
-import java.util.*
+import java.util.Date
 
 data class ErrorMessageResponse(
     val statusCode: Int = 0,

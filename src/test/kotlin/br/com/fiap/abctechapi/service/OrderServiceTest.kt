@@ -16,10 +16,9 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.springframework.boot.test.context.SpringBootTest
-import java.util.*
+import java.util.Optional
 import kotlin.collections.ArrayList
 import kotlin.test.assertNotNull
-
 
 @SpringBootTest
 class OrderServiceTest {
@@ -81,7 +80,6 @@ class OrderServiceTest {
         assertThrows<MaxAssistsException> { orderService.saveOrder(newOrder, generate_mocks_ids(20)) }
         verify { orderRepository.save(any()) wasNot called }
     }
-
 
     private fun generate_mocks_ids(number: Int): List<Long> {
         val arrayList = ArrayList<Long>()

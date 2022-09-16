@@ -18,7 +18,7 @@ class OrderServiceImpl @Autowired constructor(
         val assistances = arrayListOf<Assistance>()
 
         try {
-            assists.forEach{ item ->
+            assists.forEach { item ->
                 val assistance = assistanceRepository.findById(item).orElseThrow()
                 assistances.add(assistance)
             }

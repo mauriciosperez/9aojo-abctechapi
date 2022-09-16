@@ -3,17 +3,14 @@ package br.com.fiap.abctechapi.service
 import br.com.fiap.abctechapi.model.Assistance
 import br.com.fiap.abctechapi.repository.AssistanceRepository
 import br.com.fiap.abctechapi.service.impl.AssistanceServiceImpl
-import com.ninjasquad.springmockk.MockkBean
-import org.junit.jupiter.api.BeforeEach
-import org.springframework.boot.test.context.SpringBootTest
-import io.mockk.*
+import io.mockk.MockKAnnotations
+import io.mockk.every
 import io.mockk.impl.annotations.MockK
-import io.mockk.junit5.MockKExtension
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
+import org.springframework.boot.test.context.SpringBootTest
 import kotlin.test.assertEquals
-import kotlin.test.assertTrue
-
 
 @SpringBootTest
 class AssistanceServiceTest {
