@@ -70,7 +70,7 @@ task compile {
 }
 
 task lint {
-    dependsOn(ktlint)
+    dependsOn(ktlintCheck)
 }
 
 task generateArtifact {
