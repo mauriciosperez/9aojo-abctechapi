@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/assistance")
 class AssistanceController @Autowired constructor(private val service: AssistanceService) {
     @GetMapping
-    fun getAssists() : ResponseEntity<List<Assistance>> {
+    fun getAssists(): ResponseEntity<List<Assistance>> {
         val list = service.getAssitanceList()
         return ResponseEntity.ok(list)
     }

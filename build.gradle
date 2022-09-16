@@ -9,15 +9,12 @@ plugins {
     id 'org.springframework.boot' version '2.7.3'
     id 'org.jetbrains.kotlin.jvm' version '1.7.10'
     id 'org.jlleitschuh.gradle.ktlint' version '11.0.0'
-    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.13.RELEASE'
 }
 
 repositories {
     mavenLocal()
     mavenCentral()
-    maven {
-        url = uri('https://repo.maven.apache.org/maven2/')
-    }
 }
 
 dependencies {
@@ -27,7 +24,7 @@ dependencies {
     implementation 'org.apache.maven.plugins:maven-compiler-plugin:3.10.1'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.7.3'
     implementation 'mysql:mysql-connector-java:8.0.30'
-    implementation 'org.flywaydb:flyway-mysql:8.5.13'
+    implementation 'org.flywaydb:flyway-mysql:9.3.0'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10'
     implementation 'org.jetbrains.kotlin:kotlin-reflect:1.7.10'
     runtimeOnly 'org.springframework.boot:spring-boot-devtools:2.7.3'
