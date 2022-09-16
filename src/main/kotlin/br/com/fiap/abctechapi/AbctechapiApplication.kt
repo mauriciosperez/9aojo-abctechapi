@@ -8,7 +8,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 
 @SpringBootApplication
 open class AbctechapiApplication
-
 fun main(args: Array<String>) {
     SpringApplication.run(AbctechapiApplication::class.java, *args)
 }
