@@ -1,16 +1,22 @@
 version: 0.1
 phases:
   pre_build:
+    on-failure: ABORT
     commands:
-      - echo "Pré build phase - Exemplo baixar dependências se fosse necessário"
+      - echo "Pré build phase"
+      - gradle clean compile
+      - gradle test
+      - gradle lint
   build:
+    on-failure: ABORT
     commands:
       - echo "Building"
-      - mvn clean compile war:war
+      - gradle generateArtifact
   post_build:
+    on-failure: ABORT
     commands:
       - echo "Movendo os arquivos que serão feitos upload"
-      - mv target/*.war ./ROOT.war
+      - mv build/libs/*.war ./ROOT.war
 
 artifacts:
   files:
