@@ -20,7 +20,7 @@ dependencies {
     implementation 'org.apache.maven.plugins:maven-compiler-plugin:3.10.1'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.7.3'
     implementation 'mysql:mysql-connector-java:8.0.30'
-    //implementation 'org.flywaydb:flyway-mysql:9.3.0'
+    implementation 'org.flywaydb:flyway-mysql:9.3.0'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10'
     implementation 'org.jetbrains.kotlin:kotlin-reflect:1.7.10'
     runtimeOnly 'org.springframework.boot:spring-boot-devtools:2.7.3'
