@@ -6,7 +6,6 @@ import br.com.fiap.abctechapi.model.Assistance
 import br.com.fiap.abctechapi.model.Order
 import br.com.fiap.abctechapi.repository.AssistanceRepository
 import br.com.fiap.abctechapi.repository.OrderRepository
-import br.com.fiap.abctechapi.service.impl.OrderServiceImpl
 import io.mockk.MockKAnnotations
 import io.mockk.called
 import io.mockk.every
@@ -34,7 +33,7 @@ class OrderServiceTest {
     fun init() {
         MockKAnnotations.init(this, relaxUnitFun = true)
 
-        orderService = OrderServiceImpl(orderRepository, assistanceRepository)
+        orderService = OrderService(orderRepository, assistanceRepository)
 
         every {
             assistanceRepository.findById(any())

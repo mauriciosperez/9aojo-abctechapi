@@ -2,7 +2,6 @@ package br.com.fiap.abctechapi.service
 
 import br.com.fiap.abctechapi.model.Assistance
 import br.com.fiap.abctechapi.repository.AssistanceRepository
-import br.com.fiap.abctechapi.service.impl.AssistanceServiceImpl
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
@@ -22,7 +21,7 @@ class AssistanceServiceTest {
     fun init() {
         MockKAnnotations.init(this, relaxUnitFun = true)
 
-        assistanceService = AssistanceServiceImpl(assistanceRepository)
+        assistanceService = AssistanceService(assistanceRepository)
     }
 
     @Test
