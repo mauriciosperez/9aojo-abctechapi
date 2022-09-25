@@ -1,9 +1,6 @@
 server:
   port: 8080
 
-build.name: ${rootProject.name}
-build.version: ${version}
-
 spring:
   datasource:
     url: ${JDBC_CONNECTION_STRING}
