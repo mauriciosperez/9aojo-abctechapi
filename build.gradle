@@ -34,7 +34,7 @@ dependencies {
 }
 
 group = 'br.com.fiap'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.2-SNAPSHOT'
 description = 'abctechapi'
 mainClassName = 'br.com.fiap.abctechapi.AbctechapiApplicationKt'
 java.sourceCompatibility = JavaVersion.VERSION_1_8
