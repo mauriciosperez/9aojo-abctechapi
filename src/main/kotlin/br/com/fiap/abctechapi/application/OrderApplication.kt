@@ -13,15 +13,15 @@ class OrderApplication @Autowired constructor(private val service: OrderService)
     fun createOrder(orderDto: OrderDto) {
         val order = Order(
             operatorId = orderDto.operatorId,
-            startOrderLocation = getOrderLocationFromOrderLocationDro(orderDto.start),
-            endOrderLocation = getOrderLocationFromOrderLocationDro(orderDto.end)
+            startOrderLocation = getOrderLocationFromOrderLocationDto(orderDto.start),
+            endOrderLocation = getOrderLocationFromOrderLocationDto(orderDto.end)
         )
 
         service.saveOrder(order, assists = orderDto.assists)
     }
 
     companion object {
-        private fun getOrderLocationFromOrderLocationDro(orderLocationDto: OrderLocationDto) =
+        private fun getOrderLocationFromOrderLocationDto(orderLocationDto: OrderLocationDto) =
             OrderLocation(
                 latitude = orderLocationDto.latitude,
                 longitude = orderLocationDto.longitude,

@@ -49,12 +49,12 @@ class OrderServiceTest {
     }
 
     @Test
-    fun order_service_not_null() {
+    fun `non null service`() {
         assertNotNull(orderService)
     }
 
     @Test
-    fun create_order_error_minimum() {
+    fun `create order with less than minimum`() {
         val newOrder = Order()
         newOrder.operatorId = 1234L
 
@@ -63,27 +63,27 @@ class OrderServiceTest {
     }
 
     @Test
-    fun create_order_success() {
+    fun `create successful order`() {
         val newOrder = Order()
         newOrder.operatorId = 1234L
-        orderService.saveOrder(newOrder, generate_mocks_ids(5))
+        orderService.saveOrder(newOrder, generateMocksIds(5))
 
         verify(exactly = 1) { orderRepository.save(newOrder) }
     }
 
     @Test
-    fun create_order_error_maximum() {
+    fun `create order with more than maximum`() {
         val newOrder = Order()
         newOrder.operatorId = 1234L
 
-        assertThrows<MaxAssistsException> { orderService.saveOrder(newOrder, generate_mocks_ids(20)) }
+        assertThrows<MaxAssistsException> { orderService.saveOrder(newOrder, generateMocksIds(20)) }
         verify { orderRepository.save(any()) wasNot called }
     }
 
-    private fun generate_mocks_ids(number: Int): List<Long> {
+    private fun generateMocksIds(number: Int): List<Long> {
         val arrayList = ArrayList<Long>()
-        for (x in 0 until number) {
-            arrayList.add(Integer.toUnsignedLong(x))
+        for (i in 0 until number) {
+            arrayList.add(Integer.toUnsignedLong(i))
         }
         return arrayList
     }

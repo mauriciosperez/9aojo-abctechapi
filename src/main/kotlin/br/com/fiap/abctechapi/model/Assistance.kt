@@ -18,5 +18,5 @@ data class Assistance(
     @Column(name = "name", nullable = false, length = 100)
     val name: String = "",
     @Column(name = "description", nullable = false, length = 300)
-    val description: String = " "
+    val description: String = ""
 )

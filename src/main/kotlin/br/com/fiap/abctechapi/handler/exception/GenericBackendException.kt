@@ -7,7 +7,7 @@ open class GenericBackendException(
     val description: String,
     val status: HttpStatus
 ) : RuntimeException(message) {
-    object UNKNOWN_ERROR : GenericBackendException(
+    object UnknownError : GenericBackendException(
         "Unknown Error",
         "Unknown error: try again later",
         HttpStatus.SERVICE_UNAVAILABLE
