@@ -1,0 +1,29 @@
+on:
+  push:
+    branches:
+      - main
+
+name: CI Release
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: 11
+      - name: Compile
+        run: gradlew clean compile
+      - name: Lint
+        run: gradlew lint
+      - name: Test
+        run: gradlew test
+      - name: Build and generate artifact
+        run: gradlew generateArtifact
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/libs/*.war"
+          token: ${{ secrets.TOKEN }}
+

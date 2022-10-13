@@ -31,5 +31,5 @@ class OrderService @Autowired constructor(
         }
     }
 
-    fun listOrderByOperator(operatorId: Long): List<Order> = listOf()
+    fun listOrderByOperator(operatorId: Long): List<Order> = orderRepository.getOrdersByOperatorId(operatorId)
 }
