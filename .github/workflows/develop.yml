@@ -25,5 +25,7 @@ jobs:
         run: ./gradlew lint
       - name: Test
         run: ./gradlew test
+      - name: Verify code coverage
+        run: ./gradlew jacocoTestCoverageVerification
       - name: Build and generate artifact
         run: ./gradlew generateArtifact

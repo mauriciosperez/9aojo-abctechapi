@@ -10,15 +10,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
           java-version: 11
+          distribution: corretto
+          cache: gradle
       - name: Compile
         run: ./gradlew clean compile
       - name: Lint
         run: ./gradlew lint
       - name: Test
         run: ./gradlew test
+      - name: Verify code coverage
+        run: ./gradlew jacocoTestCoverageVerification
       - name: Build and generate artifact
         run: ./gradlew generateArtifact
       - name: Create Release

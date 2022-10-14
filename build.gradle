@@ -62,11 +62,21 @@ test {
 }
 
 jacocoTestReport {
-    dependsOn test
+//    dependsOn test
     reports {
         xml.required = false
         csv.required = false
         html.outputLocation = layout.buildDirectory.dir('reports/jacoco')
+    }
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.3
+            }
+        }
     }
 }
 
