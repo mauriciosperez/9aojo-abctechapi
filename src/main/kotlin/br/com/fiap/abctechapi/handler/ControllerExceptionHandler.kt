@@ -21,6 +21,6 @@ class ControllerExceptionHandler {
         )
 
     @ExceptionHandler(Exception::class)
-    fun genericErrorHandler(exception: Exception): ResponseEntity<ErrorMessageResponse> =
+    fun genericErrorHandler(): ResponseEntity<ErrorMessageResponse> =
         defaultErrorHandler(GenericBackendException.UnknownError)
 }
