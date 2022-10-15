@@ -36,5 +36,5 @@ jobs:
         with:
           artifacts: "build/libs/*.war"
           token: ${{ secrets.TOKEN }}
-          tag: $${{ steps.version.outputs.content }}
+          tag: ${{ steps.version.outputs.content }}
           commit: main
