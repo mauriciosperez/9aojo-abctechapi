@@ -17,7 +17,10 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web:2.7.4'
     implementation 'org.springframework.boot:spring-boot-configuration-processor:2.7.4'
+    implementation 'org.springframework.boot:spring-boot-starter-security:2.7.4'
+    implementation 'org.springframework.boot:spring-boot-starter-validation:2.7.4'
     implementation 'org.projectlombok:lombok:1.18.24'
+    implementation 'io.jsonwebtoken:jjwt:0.9.1'
     implementation 'org.apache.maven.plugins:maven-compiler-plugin:3.10.1'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.7.4'
     implementation 'mysql:mysql-connector-java:8.0.30'
