@@ -43,10 +43,6 @@ open class WebSecurityConfig @Autowired constructor(
 
     @Bean
     open fun filterChain(http: HttpSecurity): SecurityFilterChain {
-//        http.cors().disable().csrf().disable()
-//            .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-//            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-//            .authorizeRequests().antMatchers("/auth/**").permitAll()
         with(http) {
             cors()
             csrf().disable()
@@ -61,4 +57,3 @@ open class WebSecurityConfig @Autowired constructor(
         return http.build()
     }
 }
-
