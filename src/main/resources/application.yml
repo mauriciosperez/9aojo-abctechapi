@@ -10,3 +10,9 @@ spring:
     hibernate:
       ddl-auto: none
     show-sql: true
+
+abctech:
+  app:
+    jwtSecret: 3718293U1I
+    jwtCookieName: abctechapi
+    jwtExpirationMs: 86400000

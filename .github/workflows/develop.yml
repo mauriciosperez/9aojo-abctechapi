@@ -29,3 +29,8 @@ jobs:
         run: ./gradlew jacocoTestCoverageVerification
       - name: Build and generate artifact
         run: ./gradlew generateArtifact
+      - uses: actions/upload-artifact@v3
+        with:
+          name: war file
+          path: build/libs/*.war
+          if-no-files-found: error

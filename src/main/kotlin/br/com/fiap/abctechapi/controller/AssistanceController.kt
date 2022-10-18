@@ -9,11 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/assistance")
+@RequestMapping("/api/assistance")
 class AssistanceController @Autowired constructor(private val application: AssistanceApplication) {
     @GetMapping
-    fun getAssists(): ResponseEntity<List<AssistDto>> {
-        val list = application.getAssists()
-        return ResponseEntity.ok(list)
-    }
+    fun getAssists(): ResponseEntity<List<AssistDto>> =
+        ResponseEntity.ok(application.getAssists())
 }

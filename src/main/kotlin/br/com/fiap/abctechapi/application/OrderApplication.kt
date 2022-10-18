@@ -7,15 +7,18 @@ import br.com.fiap.abctechapi.application.dto.OrderResponseDto
 import br.com.fiap.abctechapi.model.Assistance
 import br.com.fiap.abctechapi.model.Order
 import br.com.fiap.abctechapi.model.OrderLocation
+import br.com.fiap.abctechapi.model.UserDetailsImpl
 import br.com.fiap.abctechapi.service.OrderService
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.stereotype.Component
 
 @Component
 class OrderApplication @Autowired constructor(private val service: OrderService) {
     fun createOrder(orderDto: OrderDto) {
+        val userDetails = SecurityContextHolder.getContext().authentication.principal as UserDetailsImpl
         val order = Order(
-            operatorId = orderDto.operatorId,
+            operatorId = userDetails.id,
             startOrderLocation = mapDtoToOrderLocation(orderDto.start),
             endOrderLocation = mapDtoToOrderLocation(orderDto.end)
         )
