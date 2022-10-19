@@ -24,7 +24,8 @@ class JwtUtils {
 
     fun getJwtFromCookies(request: HttpServletRequest): String? {
         val cookie = WebUtils.getCookie(request, jwtCookie)
-        return cookie?.value
+        if (cookie?.value != null) return cookie.value
+        return request.getHeader(AUTHORIZATION_HEADER)
     }
 
     fun generateJwtCookie(userDetails: UserDetailsImpl): ResponseCookie {
@@ -54,4 +55,8 @@ class JwtUtils {
             .setExpiration(Date(Date().time + jwtExpirationMs))
             .signWith(SignatureAlgorithm.HS512, jwtSecret)
             .compact()
+
+    companion object {
+        private const val AUTHORIZATION_HEADER = "authorization"
+    }
 }

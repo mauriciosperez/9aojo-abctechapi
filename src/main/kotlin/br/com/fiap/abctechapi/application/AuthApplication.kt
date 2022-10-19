@@ -32,7 +32,8 @@ class AuthApplication @Autowired constructor(
         val response = LoginResponseDto(
             id = userDetails.id,
             username = userDetails.username,
-            email = userDetails.email
+            email = userDetails.email,
+            token = jwtCookie.value
         )
         return Pair(response, jwtCookie.toString())
     }
