@@ -18,7 +18,9 @@ class AuthController @Autowired constructor(private val application: AuthApplica
     @PostMapping("/auth/signin")
     fun authenticateUser(@RequestBody loginRequest: @Valid LoginDto): ResponseEntity<LoginResponseDto> {
         val (body, token) = application.login(loginRequest)
-        return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, token).body(body)
+        return ResponseEntity.ok()
+            .header(HttpHeaders.SET_COOKIE, token)
+            .body(body)
     }
 
     @PostMapping("/auth/signup")
