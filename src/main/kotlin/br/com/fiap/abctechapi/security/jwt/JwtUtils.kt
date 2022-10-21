@@ -5,6 +5,7 @@ import io.jsonwebtoken.JwtException
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.http.HttpHeaders
 import org.springframework.http.ResponseCookie
 import org.springframework.stereotype.Component
 import org.springframework.web.util.WebUtils
@@ -25,7 +26,7 @@ class JwtUtils {
     fun getJwtFromCookies(request: HttpServletRequest): String? {
         val cookie = WebUtils.getCookie(request, jwtCookie)
         if (cookie?.value != null) return cookie.value
-        return request.getHeader(AUTHORIZATION_HEADER)
+        return request.getHeader(HttpHeaders.AUTHORIZATION)
     }
 
     fun generateJwtCookie(userDetails: UserDetailsImpl): ResponseCookie {
@@ -39,14 +40,13 @@ class JwtUtils {
     fun getUserNameFromJwtToken(token: String): String =
         Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).body.subject
 
-    fun validateJwtToken(authToken: String?): Boolean {
-        return try {
+    fun validateJwtToken(authToken: String?): Boolean =
+        try {
             Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(authToken)
             true
         } catch (_: JwtException) {
             false
         }
-    }
 
     private fun generateTokenFromUsername(username: String): String =
         Jwts.builder()
@@ -55,8 +55,4 @@ class JwtUtils {
             .setExpiration(Date(Date().time + jwtExpirationMs))
             .signWith(SignatureAlgorithm.HS512, jwtSecret)
             .compact()
-
-    companion object {
-        private const val AUTHORIZATION_HEADER = "authorization"
-    }
 }

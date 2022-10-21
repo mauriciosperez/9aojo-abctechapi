@@ -17,6 +17,6 @@ open class UserDetailsServiceImpl @Autowired constructor(
     override fun loadUserByUsername(username: String): UserDetails {
         val user = repository.findByUsername(username)
         if (user.isPresent) return UserDetailsImpl.build(user.get())
-        else throw UserExceptions.UserNotFound
+        else throw UserExceptions.FailedToLogin
     }
 }
