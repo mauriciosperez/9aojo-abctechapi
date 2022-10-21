@@ -3,7 +3,7 @@ package br.com.fiap.abctechapi.handler.exception
 import org.springframework.http.HttpStatus
 
 object AssistExceptions {
-    private const val MESSAGE = "Invalid Assists"
+    private const val MESSAGE = "Assistência(s) inválida(s)"
     private const val MAX_ASSISTS_DESCRIPTION = "Número máximo de assistências é 15"
     private const val MIN_ASSISTS_DESCRIPTION = "Número máximo de assistências é 15"
     private const val INVALID_ASSIST_DESCRIPTION = "Assistência inválida"

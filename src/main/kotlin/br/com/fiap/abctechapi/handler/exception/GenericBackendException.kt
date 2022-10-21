@@ -8,8 +8,13 @@ open class GenericBackendException(
     val status: HttpStatus
 ) : RuntimeException(message) {
     object UnknownError : GenericBackendException(
-        "Unknown Error",
-        "Unknown error: try again later",
-        HttpStatus.SERVICE_UNAVAILABLE
+        message = UNKNOWN_ERROR,
+        description = UNKNOWN_ERROR_DESCRIPTION,
+        status = HttpStatus.SERVICE_UNAVAILABLE
     )
+
+    companion object {
+        private const val UNKNOWN_ERROR = "Erro desconhecido :("
+        private const val UNKNOWN_ERROR_DESCRIPTION = "Tente novamente mais tarde"
+    }
 }

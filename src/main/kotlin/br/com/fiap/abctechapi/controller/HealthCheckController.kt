@@ -8,9 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/")
 class HealthCheckController @Autowired constructor(private val buildProperties: BuildProperties) {
-    @GetMapping("version")
+    @GetMapping("/version")
     fun status(): ResponseEntity<String> =
         ResponseEntity.ok("${buildProperties.name}-${buildProperties.version}")
 }
