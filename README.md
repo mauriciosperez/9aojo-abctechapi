@@ -62,7 +62,10 @@ docker-compose up
 ./gradlew generateArtifact
 ```
 
+## Cobertura de testes
+Report gerado pelo plugin [jacoco](https://github.com/jacoco/jacoco)
+![cobertura de código 47%](images/coverage.png)
 
 ### Pipeline na AWS
-![image](images/pipeline.png)
+![pipeline passando na aws](images/pipeline.png)
 
