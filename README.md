@@ -13,6 +13,7 @@ URL: [https://www.9aojo-abctech.dev.br](https://www.9aojo-abctech.dev.br)
 | POST  | /auth/signin                      | Não          | Faz login do operador                    |
 | POST  | /api/auth/signout                 | Sim          | Faz logout do operador                   |
 | POST  | /api/order                        | Sim          | Cria uma nova ordem para o operador      |
+
 Ao fazer o login, o client recebe um token no corpo e nos cookies da resposta que deve ser usado nas requests seguintes ou como cookie ou no header ```authorization```.
 
 Documentos no Insomnia:
